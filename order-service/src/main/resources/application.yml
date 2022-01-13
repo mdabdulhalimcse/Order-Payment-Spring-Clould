@@ -1,0 +1,15 @@
+
+server:
+  port: 9192
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/testdatabase?createDatabaseIfNotExist=true
+    username: root
+    password: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
