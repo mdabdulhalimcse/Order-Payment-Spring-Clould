@@ -17,4 +17,8 @@ public class PaymentService {
         payment.setTransactionId(UUID.randomUUID().toString());
         return paymentRepository.save(payment);
     }
+
+    public Payment findPaymentHistoryByOrderId(Long orderId) {
+        return paymentRepository.findByOrderId(orderId);
+    }
 }

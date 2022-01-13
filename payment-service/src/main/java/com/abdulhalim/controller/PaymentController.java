@@ -3,10 +3,7 @@ package com.abdulhalim.controller;
 import com.abdulhalim.entity.Payment;
 import com.abdulhalim.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
 
@@ -27,6 +24,11 @@ public class PaymentController {
     public String paymentProcessing(){
         //api call should be 3rd party payment gateway
        return new Random().nextBoolean()?"success" : "false";
+    }
+
+    @GetMapping("/{orderId}")
+    public Payment findPaymentHistoryByOrderId(@PathVariable Long orderId){
+        return paymentService.findPaymentHistoryByOrderId(orderId);
     }
 
 
